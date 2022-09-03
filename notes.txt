@@ -1,2 +1,4 @@
 https://github.com/rubberduck-vba/Rubberduck/releases
 Rubberduck v2.5.2.6106-pre
+
+write doc on how to install from source
