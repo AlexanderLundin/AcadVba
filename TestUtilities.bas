@@ -1,12 +1,12 @@
 Attribute VB_Name = "TestUtilities"
-Public Sub ExportAllModules()
+Public Sub AcadExportAllModules()
     Dim appAcad As AcadApplication
     Set appAcad = GetAcad()
-    ExportVbaProjects appAcad
+    AcadExportVbaProjects appAcad
     
 End Sub
 
-Sub ExportVbaProjects(appAcad As AcadApplication)
+Sub AcadExportVbaProjects(appAcad As AcadApplication)
     Dim objIDE As Object
     Dim projects As Object
     Dim exportFolder As String
