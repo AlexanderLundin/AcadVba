@@ -39,3 +39,6 @@ https://github.com/rubberduck-vba/Rubberduck/issues/2641
 				
 				
 http://go.microsoft.com/fwlink/?LinkId=%20155569
+
+
+get-childitem "C:\Users\amlundin\AppData\Local\Rubberduck" | unblock-file -confirm
