@@ -33,3 +33,9 @@ C:\Program Files\Autodesk\AutoCAD 2019\acad.exe
 
 Rubber duck stuck spinning
 https://github.com/rubberduck-vba/Rubberduck/issues/2641
+
+                var app = MessageFilter.GetAutoCADApp();
+                application = (TApplication)app;
+				
+				
+http://go.microsoft.com/fwlink/?LinkId=%20155569
