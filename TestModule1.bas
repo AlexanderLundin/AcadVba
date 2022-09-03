@@ -53,10 +53,10 @@ Public Sub TestInsertDrawingAsBlockAndDelete_ShouldPass()
     Dim blockName As String
     blockName = "testBlock"
     Dim blockObject As AcadBlock
-    Set blockObject = ThisDrawing.Blocks.Add(Utilities.ConstantInsertionPointZeroZeroZero(), blockName)
+    Set blockObject = ThisDrawing.Blocks.Add(TestUtilities.ConstantInsertionPointZeroZeroZero(), blockName)
     
-    blockObject.AddAttribute 5#, acAttributeModeNormal, "promptString", Utilities.ConstantInsertionPointZeroZeroZero(), "tag", "value"
-    blockObject.AddLine Utilities.ConstantInsertionPointZeroZeroZero(), Utilities.ConstantInsertionPointOneOneOne()
+    blockObject.AddAttribute 5#, acAttributeModeNormal, "promptString", TestUtilities.ConstantInsertionPointZeroZeroZero(), "tag", "value"
+    blockObject.AddLine TestUtilities.ConstantInsertionPointZeroZeroZero(), TestUtilities.ConstantInsertionPointOneOneOne()
     
     
     Dim blockReference As AcadBlockReference

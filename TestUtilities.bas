@@ -10,6 +10,7 @@ Sub AcadExportVbaProjects(appAcad As AcadApplication)
     Dim objIDE As Object
     Dim projects As Object
     Dim exportFolder As String
+    Dim project As Object
     
     Set objIDE = AcadApplication.VBE
     Set projects = objIDE.VBProjects
@@ -166,6 +167,15 @@ Public Function GetTempFileName() As String
 End Function
 
 Public Function GetTempFolder() As String
-    GetTempFolder = Environ("Temp")
+    Static tempFolderPath As String
+
+    If Len(tempFolderPath) = 0 Then
+        Dim fs As Object
+        Set fs = CreateObject("Scripting.FileSystemObject")
+        
+        Const tempFolderFlag = 2
+        tempFolderPath = fs.GetSpecialFolder(tempFolderFlag)
+    End If
+    GetTempFolder = tempFolderPath
 End Function
 
