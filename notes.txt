@@ -2,3 +2,17 @@ https://github.com/rubberduck-vba/Rubberduck/releases
 Rubberduck v2.5.2.6106-pre
 
 write doc on how to install from source
+
+clone:
+https://github.com/rubberduck-vba/Rubberduck.git
+
+
+Make sure Platform is AnyCPU to avoid build errors
+
+build RubberduckMeta.sln
+buid Rubberduck.sln:
+
+The deployment project will copy and paste the necessary .dlls
+
+copy paste all Rubber duck bin files from .sln build output to:
+%LOCALAPPDATA%\Rubberduck
