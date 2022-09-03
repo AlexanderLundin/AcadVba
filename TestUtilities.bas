@@ -2,38 +2,15 @@ Attribute VB_Name = "TestUtilities"
 Public Sub ExportAllModules()
     Dim appAcad As AcadApplication
     Set appAcad = GetAcad()
-    Dim projects() As String
-    Dim exportFolder As String
-    exportFolder = "C:\Temp"
-    projects = ExportVbaProjects(appAcad)
+    ExportVbaProjects appAcad
     
 End Sub
 
-Sub FSOGetFileName(fileName As String)
-    Dim FSO As New FileSystemObject
-    Set FSO = CreateObject("Scripting.FileSystemObject")
-    'Get File Name no Extension
-    FSOGetFileName = Left(fileName, InStr(fileName, ".") - 1)
-End Sub
-
-Function GetFolder(path As String) As String
-    Dim folder As String
-    folder = Dir(path)
-    GetFolder = folder
-End Function
-
-Public Function GetFolderName(path As String) As String
-    Dim directory As String
-    directory = Left(path, InStrRev(path, "\") - 1)
-    GetFolderName = directory
-End Function
-
-'Needs reference to Microsoft Visual Basic for Applications Extensibility 5.3 or greater
-
-Public Function ExportVbaProjects(appAcad As AcadApplication)
+Sub ExportVbaProjects(appAcad As AcadApplication)
     Dim objIDE As Object
     Dim projects As Object
     Dim exportFolder As String
+    
     Set objIDE = AcadApplication.VBE
     Set projects = objIDE.VBProjects
     
@@ -44,9 +21,7 @@ Public Function ExportVbaProjects(appAcad As AcadApplication)
         Next Module
     Next project
 
-    GetVBAProjects = projects
-
-End Function
+End Sub
 
 
 
@@ -145,6 +120,19 @@ End Function
 
 
 
+'FSO, Needs reference to Microsoft Visual Basic for Applications Extensibility 5.3 or greater
+Sub FSOGetFileName(fileName As String)
+    Dim FSO As New FileSystemObject
+    Set FSO = CreateObject("Scripting.FileSystemObject")
+    'Get File Name no Extension
+    FSOGetFileName = Left(fileName, InStr(fileName, ".") - 1)
+End Sub
+
+Public Function GetFolderName(path As String) As String
+    Dim directory As String
+    directory = Left(path, InStrRev(path, "\") - 1)
+    GetFolderName = directory
+End Function
 
 Public Function GetNewDwgFileInTempFolder() As String
     Dim fileName As String
